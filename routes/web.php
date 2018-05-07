@@ -17,5 +17,11 @@ Route::get('/', function () {
 
 
 Route::get('/page', function(){
-   return view('page');
+   echo '<pre>';
+   print_r($_ENV);
+   echo '</pre>';
+});
+
+Route::post('/comments', function (){
+    print_r($_POST);
 });
