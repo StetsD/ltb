@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', ['as' => 'home', function () {
     return view('welcome');
-});
+}]);
 
 
 Route::get('/page', function(){
@@ -22,6 +22,22 @@ Route::get('/page', function(){
    echo '</pre>';
 });
 
-Route::post('/comments', function (){
-    print_r($_POST);
+
+Route::get('/comments', function (){
+    $route = Route::current();
+    echo  $route->getName();
+})->name('comments');
+
+
+Route::group(['prefix' => 'admin'], function(){
+
+    Route::get('page/create', function(){
+//        echo "page/create";
+        return redirect()->route('home', array('id'=>25));
+    });
+
+    Route::get('page/delete', function(){
+        echo 'page/delete';
+    });
+
 });
