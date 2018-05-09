@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/articles', 'Admin/Core@getArticles');
+Route::get('/article/{id}', 'Admin/Core@getArticle');
+
+Route::get('/test', function(){
+	echo 'lalala';
+});
