@@ -1,19 +1,17 @@
 <?php
 
-	namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-	use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-	class Core extends Controller {
-
-		public function getArticles(){
-
-		}
-
-		public function getArticle($id){
-			echo 'Id is '.$id;
-		}
+class Core extends Controller
+{
+    public function getArticles(){
 
 	}
 
-?>
+	public function getArticle($id){
+
+	}
+}

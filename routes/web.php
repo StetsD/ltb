@@ -15,36 +15,13 @@ Route::get('/', ['as' => 'home', function () {
     return view('welcome');
 }]);
 
+Route::get('/about/{id}', 'FirstController@show');
 
-Route::get('/page', function(){
-   echo '<pre>';
-   print_r($_ENV);
-   echo '</pre>';
-});
+Route::get('/articles', ['uses' => 'Admin\Core@getArticles', 'as' => 'articles']);
 
+Route::get('/article/{id}', ['uses' => 'Admin\Core@getArticle', 'as' => 'article']);
 
-Route::get('/comments', function (){
-    $route = Route::current();
-    echo  $route->getName();
-})->name('comments');
+// Route::get('pages/add', 'Admin\CoreResource@add');
+// Route::resource('/pages', 'Admin\CoreResource');
 
-
-Route::group(['prefix' => 'admin'], function(){
-
-    Route::get('page/create', function(){
-//        echo "page/create";
-        return redirect()->route('home', array('id'=>25));
-    });
-
-    Route::get('page/delete', function(){
-        echo 'page/delete';
-    });
-
-});
-
-Route::get('/articles', 'Admin/Core@getArticles');
-Route::get('/article/{id}', 'Admin/Core@getArticle');
-
-Route::get('/test', function(){
-	echo 'lalala';
-});
+Route::controller('/pages', 'PagesController', ['getIndex'=>'pages.get']);
