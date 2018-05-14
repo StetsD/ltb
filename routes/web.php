@@ -11,17 +11,10 @@
 |
 */
 
-Route::get('/', ['as' => 'home', function () {
-    return view('welcome');
-}]);
+Route::get('/', ['as' => 'home', 'uses'=>'Admin\IndexController@show']);
 
 Route::get('/about/{id}', 'FirstController@show');
 
 Route::get('/articles', ['uses' => 'Admin\Core@getArticles', 'as' => 'articles']);
 
-Route::get('/article/{id}', ['uses' => 'Admin\Core@getArticle', 'as' => 'article']);
-
-// Route::get('pages/add', 'Admin\CoreResource@add');
-// Route::resource('/pages', 'Admin\CoreResource');
-
-Route::controller('/pages', 'PagesController', ['getIndex'=>'pages.get']);
+Route::get('/article/{page}', ['uses' => 'Admin\Core@getArticle', 'as' => 'article', 'middleware' => 'mymiddle'])->middleware(['mymiddle']);
