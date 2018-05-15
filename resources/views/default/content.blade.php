@@ -15,3 +15,24 @@
 	<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
   </div>
 </div>
+
+<!-- {{ $bvar or $title }} -->
+
+@if(count($data) < 3)
+	In mass less 3
+@else
+	In mass more 3
+@endif
+
+
+
+@for($i = 0; $i < count($data); $i++)
+
+	{{ $data[$i] }}
+
+@endfor
+
+
+@foreach($data as $k=>$value)
+	<li>{{ $k.'-'.$value }}</li>
+@endforeach
