@@ -8,6 +8,6 @@ use App\Http\Controllers\Controller;
 class AboutController extends Controller
 {
     public function show(){
-
+		return view('default.about')->withTitle('Maza');
 	}
 }

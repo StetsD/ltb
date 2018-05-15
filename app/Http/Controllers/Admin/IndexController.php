@@ -8,6 +8,6 @@ use App\Http\Controllers\Controller;
 class IndexController extends Controller
 {
     public function show(){
-		return view('default.template')->withTitle('Hello !');
+		return view('default.index')->withTitle('Hello !');
 	}
 }
