@@ -18,3 +18,5 @@ Route::get('/articles', ['uses' => 'Admin\Core@getArticles', 'as' => 'articles']
 Route::get('/article/{page}', ['uses' => 'Admin\Core@getArticle', 'as' => 'article', 'middleware' => 'mymiddle'])->middleware(['mymiddle']);
 
 Route::get('/about', ['uses' => 'Admin\AboutController@show', 'as' => 'about']);
+
+Route::match(['get', 'post'], '/contact', ['uses' => 'Admin\ContactController@show', 'as' => 'contact']);
