@@ -38,9 +38,28 @@ class Core extends Controller
 		// $article->save();
 
 		//Update
-		$article = Article::find(2);
-		$article->alias = 'ebala';
-		$article->save();
+		// $article = Article::find(2);
+		// $article->alias = 'ebala';
+		// $article->save();
+		//
+
+		// Article::firstOrCreate([
+		// 	'name'=> 'Hello World 2',
+		// 	'text'=> 'Some Test',
+		// 	'img' => 'ldldld',
+		// 	'alias' => 'kdjfie'
+		// ]);
+
+		//Delete
+		// $article = Article::find(6);
+		// $article->delete();
+
+		// Article::destroy(7);
+
+
+		//Soft deleted
+		// $article = Article::find(5);
+		// $article->delete();
 
 		$articles = Article::all();
 
