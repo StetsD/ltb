@@ -26,4 +26,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+	public function country(){
+		return $this->hasOne('App\Country');
+	}
+
+	public function articles(){
+		return $this->hasMany('App\Article');
+	}
 }

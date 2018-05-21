@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use DB;
 use App\Article;
+use App\User;
 
 class Core extends Controller
 {
@@ -61,7 +62,10 @@ class Core extends Controller
 		// $article = Article::find(5);
 		// $article->delete();
 
+
 		$articles = Article::all();
+
+
 
 		dump($articles);
 
