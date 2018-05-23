@@ -67,6 +67,7 @@ class Core extends Controller
 
 
 
+
 		dump($articles);
 
 		return;
