@@ -16,9 +16,7 @@ class ChangeArticlesTable extends Migration
         if(Schema::hasTable('articles')){
 			Schema::table('articles', function (Blueprint $table) {
 
-				if(!Schema::hasColumn('alias')){
-					$table->string('alias', 100);
-				}
+				$table->string('alias', 100);
 
 	        });
 		}
@@ -32,7 +30,10 @@ class ChangeArticlesTable extends Migration
     public function down()
     {
         Schema::table('articles', function (Blueprint $table) {
-            $table->dropColumn('alias');
+			if(Schema::hasColumn('alias')){
+				$table->dropColumn('alias');
+			}
+
         });
     }
 }
